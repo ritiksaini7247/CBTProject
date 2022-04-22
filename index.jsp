@@ -58,7 +58,7 @@
 					style="color: black; color: black; font-size: 25px; font-family: cursive; margin-top: 9px;">Reasoning
 					Questions</h2>
 				<%
-				int j = 1;
+				int j = 0;
 				ArrayList<CBTQuestions> shuffleQuestions = questionDao.getReasoningShuffeledQuestions();
 				for (int i = 0; i < shuffleQuestions.size(); i++) {
 				%>
@@ -71,7 +71,7 @@
 				<div class="question_title text-center text-uppercase">
 					<input type="hidden"
 						value="<%=shuffleQuestions.get(i).getQuestionid()%>"
-						name="question_id_<%=i%>">
+						name="reasoning_question_id_<%=i%>">
 					<h1 class="animate__animated animate__fadeInRight animate_25ms"><%=shuffleQuestions.get(i).getQuestion()%></h1>
 				</div>
 
@@ -79,39 +79,40 @@
 					<div class="col-6">
 						<ul class="list-unstyled p-0">
 							<li class="animate__animated animate__fadeInRight animate_50ms">
-								<input id="opt_<%=j%>" type="radio"
+								<input id="reasoning_opt_<%=j%>" type="radio"
 								value="<%=shuffleQuestions.get(i).getOption1()%>"
-								name="stp_<%=i%>_select_option"> <label for="opt_<%=j%>"><%=shuffleQuestions.get(i).getOption1()%></label>
+								name="reasoning_selected_option_<%=i%>"> <label
+								for="reasoning_opt_<%=j%>"><%=shuffleQuestions.get(i).getOption1()%></label>
 							</li>
 						</ul>
 					</div>
 					<div class="col-6">
 						<ul class="list-unstyled p-0">
 							<li class="animate__animated animate__fadeInRight animate_100ms">
-								<input id="opt_<%=(j + 1)%>" type="radio"
+								<input id="reasoning_opt_<%=(j + 1)%>" type="radio"
 								value="<%=shuffleQuestions.get(i).getOption2()%>"
-								name="stp_<%=i%>_select_option"> <label
-								for="opt_<%=(j + 1)%>"><%=shuffleQuestions.get(i).getOption2()%></label>
+								name="reasoning_selected_option_<%=i%>"> <label
+								for="reasoning_opt_<%=(j + 1)%>"><%=shuffleQuestions.get(i).getOption2()%></label>
 							</li>
 						</ul>
 					</div>
 					<div class="col-6">
 						<ul class="list-unstyled p-0">
 							<li class=" animate__animated animate__fadeInRight animate_150ms">
-								<input id="opt_<%=(j + 2)%>" type="radio"
+								<input id="reasoning_opt_<%=(j + 2)%>" type="radio"
 								value="<%=shuffleQuestions.get(i).getOption3()%>"
-								name="stp_<%=i%>_select_option"> <label
-								for="opt_<%=(j + 2)%>"><%=shuffleQuestions.get(i).getOption3()%></label>
+								name="reasoning_selected_option_<%=i%>"> <label
+								for="reasoning_opt_<%=(j + 2)%>"><%=shuffleQuestions.get(i).getOption3()%></label>
 							</li>
 						</ul>
 					</div>
 					<div class="col-6">
 						<ul class="list-unstyled p-0">
 							<li class=" animate__animated animate__fadeInRight animate_200ms">
-								<input id="opt_<%=(j + 3)%>" type="radio"
+								<input id="reasoning_opt_<%=(j + 3)%>" type="radio"
 								value="<%=shuffleQuestions.get(i).getOption4()%>"
-								name="stp_<%=i%>_select_option"> <label
-								for="opt_<%=(j + 3)%>"><%=shuffleQuestions.get(i).getOption4()%></label>
+								name="reasoning_selected_option_<%=i%>"> <label
+								for="reasoning_opt_<%=(j + 3)%>"><%=shuffleQuestions.get(i).getOption4()%></label>
 							</li>
 						</ul>
 					</div>
@@ -128,9 +129,9 @@
 					style="color: black; color: black; font-size: 25px; font-family: cursive;">Programming
 					Questions</h2>
 				<%
-				int j2 = 1;
+				int j2 = 0;
 				ArrayList<CBTQuestions> shuffleQuestions2 = questionDao.getProgrammingShuffeledQuestions();
-				for (int i = 0; i < shuffleQuestions.size(); i++) {
+				for (int i = 0; i < shuffleQuestions2.size(); i++) {
 				%>
 				<div class="question_number text-center text-uppercase text-white"
 					style="margin-top: 2%;">
@@ -141,7 +142,7 @@
 				<div class="question_title text-center text-uppercase">
 					<input type="hidden"
 						value="<%=shuffleQuestions2.get(i).getQuestionid()%>"
-						name="question_id_<%=i%>">
+						name="programming_question_id_<%=i%>">
 					<h1 class="animate__animated animate__fadeInRight animate_25ms"><%=shuffleQuestions2.get(i).getQuestion()%></h1>
 				</div>
 
@@ -149,40 +150,40 @@
 					<div class="col-6">
 						<ul class="list-unstyled p-0">
 							<li class="animate__animated animate__fadeInRight animate_50ms">
-								<input id="opt_<%=j2%>" type="radio"
+								<input id="programming_opt_<%=j2%>" type="radio"
 								value="<%=shuffleQuestions2.get(i).getOption1()%>"
-								name="stp_<%=i%>_select_option"> <label
-								for="opt_<%=j2%>"><%=shuffleQuestions2.get(i).getOption1()%></label>
+								name="programming_selected_option_<%=i%>"> <label
+								for="programming_opt_<%=j2%>"><%=shuffleQuestions2.get(i).getOption1()%></label>
 							</li>
 						</ul>
 					</div>
 					<div class="col-6">
 						<ul class="list-unstyled p-0">
 							<li class="animate__animated animate__fadeInRight animate_100ms">
-								<input id="opt_<%=(j2 + 1)%>" type="radio"
+								<input id="programming_opt_<%=(j2 + 1)%>" type="radio"
 								value="<%=shuffleQuestions2.get(i).getOption2()%>"
-								name="stp_<%=i%>_select_option"> <label
-								for="opt_<%=(j2 + 1)%>"><%=shuffleQuestions2.get(i).getOption2()%></label>
+								name="programming_selected_option_<%=i%>"> <label
+								for="programming_opt_<%=(j2 + 1)%>"><%=shuffleQuestions2.get(i).getOption2()%></label>
 							</li>
 						</ul>
 					</div>
 					<div class="col-6">
 						<ul class="list-unstyled p-0">
 							<li class=" animate__animated animate__fadeInRight animate_150ms">
-								<input id="opt_<%=(j2 + 2)%>" type="radio"
+								<input id="programming_opt_<%=(j2 + 2)%>" type="radio"
 								value="<%=shuffleQuestions2.get(i).getOption3()%>"
-								name="stp_<%=i%>_select_option"> <label
-								for="opt_<%=(j2 + 2)%>"><%=shuffleQuestions2.get(i).getOption3()%></label>
+								name="programming_selected_option_<%=i%>"> <label
+								for="programming_opt_<%=(j2 + 2)%>"><%=shuffleQuestions2.get(i).getOption3()%></label>
 							</li>
 						</ul>
 					</div>
 					<div class="col-6">
 						<ul class="list-unstyled p-0">
 							<li class=" animate__animated animate__fadeInRight animate_200ms">
-								<input id="opt_<%=(j2 + 3)%>" type="radio"
+								<input id="programming_opt_<%=(j2 + 3)%>" type="radio"
 								value="<%=shuffleQuestions2.get(i).getOption4()%>"
-								name="stp_<%=i%>_select_option"> <label
-								for="opt_<%=(j2 + 3)%>"><%=shuffleQuestions2.get(i).getOption4()%></label>
+								name="programming_selected_option_<%=i%>"> <label
+								for="programming_opt_<%=(j2 + 3)%>"><%=shuffleQuestions2.get(i).getOption4()%></label>
 							</li>
 						</ul>
 					</div>
@@ -200,7 +201,7 @@
 					style="color: black; color: black; font-size: 25px; font-family: cursive;">Pseudocode
 					Questions</h2>
 				<%
-				int j3 = 1;
+				int j3 = 0;
 				ArrayList<CBTQuestions> shuffleQuestions3 = questionDao.getPseudocodeShuffeledQuestions();
 				for (int i = 0; i < shuffleQuestions3.size(); i++) {
 				%>
@@ -213,7 +214,7 @@
 				<div class="question_title text-center text-uppercase">
 					<input type="hidden"
 						value="<%=shuffleQuestions3.get(i).getQuestionid()%>"
-						name="question_id_<%=i%>">
+						name="pseudocode_question_id_<%=i%>">
 					<h1 class="animate__animated animate__fadeInRight animate_25ms"><%=shuffleQuestions3.get(i).getQuestion()%></h1>
 				</div>
 
@@ -221,40 +222,40 @@
 					<div class="col-6">
 						<ul class="list-unstyled p-0">
 							<li class="animate__animated animate__fadeInRight animate_50ms">
-								<input id="opt_<%=j3%>" type="radio"
+								<input id="pseudocode_opt_<%=j3%>" type="radio"
 								value="<%=shuffleQuestions3.get(i).getOption1()%>"
-								name="stp_<%=i%>_select_option"> <label
-								for="opt_<%=j3%>"><%=shuffleQuestions3.get(i).getOption1()%></label>
+								name="pseudocode_selected_option_<%=i%>"> <label
+								for="pseudocode_opt_<%=j3%>"><%=shuffleQuestions3.get(i).getOption1()%></label>
 							</li>
 						</ul>
 					</div>
 					<div class="col-6">
 						<ul class="list-unstyled p-0">
 							<li class="animate__animated animate__fadeInRight animate_100ms">
-								<input id="opt_<%=(j3 + 1)%>" type="radio"
+								<input id="pseudocode_opt_<%=(j3 + 1)%>" type="radio"
 								value="<%=shuffleQuestions3.get(i).getOption2()%>"
-								name="stp_<%=i%>_select_option"> <label
-								for="opt_<%=(j3 + 1)%>"><%=shuffleQuestions3.get(i).getOption2()%></label>
+								name="pseudocode_selected_option_<%=i%>"> <label
+								for="pseudocode_opt_<%=(j3 + 1)%>"><%=shuffleQuestions3.get(i).getOption2()%></label>
 							</li>
 						</ul>
 					</div>
 					<div class="col-6">
 						<ul class="list-unstyled p-0">
 							<li class=" animate__animated animate__fadeInRight animate_150ms">
-								<input id="opt_<%=(j3 + 2)%>" type="radio"
+								<input id="pseudocode_opt_<%=(j3 + 2)%>" type="radio"
 								value="<%=shuffleQuestions3.get(i).getOption3()%>"
-								name="stp_<%=i%>_select_option"> <label
-								for="opt_<%=(j3 + 2)%>"><%=shuffleQuestions3.get(i).getOption3()%></label>
+								name="pseudocode_selected_option_<%=i%>"> <label
+								for="pseudocode_opt_<%=(j3 + 2)%>"><%=shuffleQuestions3.get(i).getOption3()%></label>
 							</li>
 						</ul>
 					</div>
 					<div class="col-6">
 						<ul class="list-unstyled p-0">
 							<li class=" animate__animated animate__fadeInRight animate_200ms">
-								<input id="opt_<%=(j3 + 3)%>" type="radio"
+								<input id="pseudocode_opt_<%=(j3 + 3)%>" type="radio"
 								value="<%=shuffleQuestions3.get(i).getOption4()%>"
-								name="stp_<%=i%>_select_option"> <label
-								for="opt_<%=(j3 + 3)%>"><%=shuffleQuestions3.get(i).getOption4()%></label>
+								name="pseudocode_selected_option_<%=i%>"> <label
+								for="pseudocode_opt_<%=(j3 + 3)%>"><%=shuffleQuestions3.get(i).getOption4()%></label>
 							</li>
 						</ul>
 					</div>
@@ -267,8 +268,8 @@
 				}
 				%>
 
-				<!-- ------------------------------------------- -->
-				<h2 class="question_title text-center"
+				<!-- -----------------------Aptitude Questions-------------------- -->
+				<%-- 		<h2 class="question_title text-center"
 					style="color: black; color: black; font-size: 25px; font-family: cursive; margin-top: 9px;">Aptitude
 					Questions</h2>
 				<%
@@ -335,7 +336,7 @@
 				</div>
 				<%
 				}
-				%>
+				%> --%>
 
 				<div class="form_btn">
 
