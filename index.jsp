@@ -1,365 +1,511 @@
-<%@page import="com.model.CBTQuestions"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.HashMap"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@page import="com.messages.Message"%>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quizo HTML Template - V.6</title>
-<!-- FontAwesome-cdn include -->
-<link rel="stylesheet"
-	href="../../../../../cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<!-- Google fonts include -->
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>Index</title>
+<meta content="" name="description">
+
+<meta content="" name="keywords">
+
+<!-- Favicons -->
+<link href="assets/img/favicon.png" rel="icon">
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+<!-- Google Fonts -->
 <link
-	href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&amp;family=Poppins:wght@700;800&amp;display=swap"
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
 	rel="stylesheet">
-<!-- Bootstrap-css include -->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<!-- Animate-css include -->
-<link rel="stylesheet" href="assets/css/animate.min.css">
-<!-- Main-StyleSheet include -->
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+	integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Vendor CSS Files -->
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+	rel="stylesheet">
+<link href="assets/vendor/glightbox/css/glightbox.min.css"
+	rel="stylesheet">
+<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="assets/css/style.css" rel="stylesheet">
+
+<!-- =======================================================
+  * Template Name: FlexStart - v1.9.0
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
+
 <body>
-	<div class="wrapper overflow-hidden" style="background: #65c3c3;">
-		<!-- Top content -->
-		<div class="container-fluid">
+
+
+
+	<!-- ======= Header ======= -->
+	<header id="header" class="header fixed-top">
+		<div
+			class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+			<a href="index.html" class="logo d-flex align-items-center"><img
+				src="assets/img/logo.png" alt="">
+			</a>
+			<nav id="navbar" class="navbar">
+				<ul>
+					<li><a class="nav-link scrollto active" style="color: #0094a4"
+						href="#hero">Home</a></li>
+					<li><a class="nav-link scrollto" style="color: #0094a4"
+						href="#about">About</a></li>
+					<li><a class="nav-link scrollto" style="color: #0094a4"
+						href="#contact">Register</a></li>
+					<li><a class="nav-link scrollto" style="color: #0094a4"
+						href="#login">Login</a></li>
+					<li><a class="getstarted scrollto"
+						style="background-color: #0094a4" href="#login">Give Test</a></li>
+				</ul>
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav>
+			<!-- .navbar -->
+		</div>
+
+		<%
+		Message m = (Message) session.getAttribute("msg");
+		if (m != null) {
+		%>
+		<div class="alert <%=m.getCssClass()%>" style="margin: 2%"
+			role="alert">
+			<%=m.getContent()%>
+		</div>
+		<%
+		session.removeAttribute("msg");
+		}
+		%>
+
+	</header>
+	<!-- End Header -->
+
+	<!-- ======= Hero Section ======= -->
+	<section id="hero" class="hero d-flex align-items-center">
+
+		<div class="container">
 			<div class="row">
-				<div class="col-sm-6"></div>
-				<div class="col-sm-6 d-none d-sm-block">
-					<div class="count_box d-flex float-end pt-5 pe-5">
-						<!-- <div
-							class="count_clock countdown_timer d-flex align-items-center pe-5 me-3"
-							data-countdown="2022/10/24"></div> -->
-						<!-- <div id="countdown"></div> -->
-						<!-- Step Progress bar -->
-						<div class="count_progress clip-1">
-							<span class="progress-left"> <span class="progress_bar"></span>
-							</span> <span class="progress-right"> <span class="progress_bar"></span>
-							</span>
-							<div class="progress-value">
-								<div id="value">100%</div>
-							</div>
+				<div class="col-lg-6 d-flex flex-column justify-content-center">
+					<h1 data-aos="fade-up">Internship with Chetu</h1>
+					<h2 data-aos="fade-up" data-aos-delay="400">Allow your
+						learning outside the class.</h2>
+					<h2 data-aos="fade-up" data-aos-delay="400">Start & build your
+						carrer with chetu</h2>
+					<div data-aos="fade-up" data-aos-delay="600">
+						<div class="text-center text-lg-start">
+							<a href="#login"
+								class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
+								style="background-color: #0094a4"> <span>Give Test</span> <i
+								class="bi bi-arrow-right"></i>
+							</a>
 						</div>
 					</div>
 				</div>
+				<div class="col-lg-6 hero-img" data-aos="zoom-out"
+					data-aos-delay="200">
+					<img src="assets/img/hero-img.png" class="img-fluid" alt="">
+				</div>
 			</div>
 		</div>
-		<div class="container">
-			<form class="bg-white position-relative overflow-hidden"
-				style="padding: 40px" method="get"
-				action="/InterviewProject/handler">
-				<!------------------------- Step-1 ----------------------------->
-				<jsp:useBean id="questionDao" class="com.dao.CBTQuestionDao"></jsp:useBean>
-				<h2 class="question_title text-center"
-					style="color: black; color: black; font-size: 25px; font-family: cursive; margin-top: 9px;">Reasoning
-					Questions</h2>
-				<%
-				int j = 0;
-				ArrayList<CBTQuestions> shuffleQuestions = questionDao.getReasoningShuffeledQuestions();
-				for (int i = 0; i < shuffleQuestions.size(); i++) {
-				%>
-				<div class="question_number text-center text-uppercase text-white"
-					style="margin-top: 2%;">
-					<span class="rounded-pill"
-						style="background: -webkit-gradient(linear, left top, right top, from(#2ff5ff), to(#19f05b)); background: linear-gradient(to right, #2ff5ff, #19f05b);">Question
-						1 to <%=(i + 1)%></span>
-				</div>
-				<div class="question_title text-center text-uppercase">
-					<input type="hidden"
-						value="<%=shuffleQuestions.get(i).getQuestionid()%>"
-						name="reasoning_question_id_<%=i%>">
-					<h1 class="animate__animated animate__fadeInRight animate_25ms"><%=shuffleQuestions.get(i).getQuestion()%></h1>
-				</div>
 
-				<div class="row form_items">
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class="animate__animated animate__fadeInRight animate_50ms">
-								<input id="reasoning_opt_<%=j%>" type="radio"
-								value="<%=shuffleQuestions.get(i).getOption1()%>"
-								name="reasoning_selected_option_<%=i%>"> <label
-								for="reasoning_opt_<%=j%>"><%=shuffleQuestions.get(i).getOption1()%></label>
-							</li>
-						</ul>
-					</div>
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class="animate__animated animate__fadeInRight animate_100ms">
-								<input id="reasoning_opt_<%=(j + 1)%>" type="radio"
-								value="<%=shuffleQuestions.get(i).getOption2()%>"
-								name="reasoning_selected_option_<%=i%>"> <label
-								for="reasoning_opt_<%=(j + 1)%>"><%=shuffleQuestions.get(i).getOption2()%></label>
-							</li>
-						</ul>
-					</div>
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class=" animate__animated animate__fadeInRight animate_150ms">
-								<input id="reasoning_opt_<%=(j + 2)%>" type="radio"
-								value="<%=shuffleQuestions.get(i).getOption3()%>"
-								name="reasoning_selected_option_<%=i%>"> <label
-								for="reasoning_opt_<%=(j + 2)%>"><%=shuffleQuestions.get(i).getOption3()%></label>
-							</li>
-						</ul>
-					</div>
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class=" animate__animated animate__fadeInRight animate_200ms">
-								<input id="reasoning_opt_<%=(j + 3)%>" type="radio"
-								value="<%=shuffleQuestions.get(i).getOption4()%>"
-								name="reasoning_selected_option_<%=i%>"> <label
-								for="reasoning_opt_<%=(j + 3)%>"><%=shuffleQuestions.get(i).getOption4()%></label>
-							</li>
-						</ul>
-					</div>
-					<%
-					j += 4;
-					%>
-				</div>
-				<%
-				}
-				%>
-				<!-- ----------------------Programming Questions---------------------- -->
+	</section>
+	<!-- End Hero -->
 
-				<h2 class="question_title text-center"
-					style="color: black; color: black; font-size: 25px; font-family: cursive;">Programming
-					Questions</h2>
-				<%
-				int j2 = 0;
-				ArrayList<CBTQuestions> shuffleQuestions2 = questionDao.getProgrammingShuffeledQuestions();
-				for (int i = 0; i < shuffleQuestions2.size(); i++) {
-				%>
-				<div class="question_number text-center text-uppercase text-white"
-					style="margin-top: 2%;">
-					<span class="rounded-pill"
-						style="background: -webkit-gradient(linear, left top, right top, from(#2ff5ff), to(#19f05b)); background: linear-gradient(to right, #2ff5ff, #19f05b);">Question
-						1 to <%=(i + 1)%></span>
-				</div>
-				<div class="question_title text-center text-uppercase">
-					<input type="hidden"
-						value="<%=shuffleQuestions2.get(i).getQuestionid()%>"
-						name="programming_question_id_<%=i%>">
-					<h1 class="animate__animated animate__fadeInRight animate_25ms"><%=shuffleQuestions2.get(i).getQuestion()%></h1>
-				</div>
+	<!-- ======= Login Section ======= -->
+	<section id="login" class="contact">
 
-				<div class="row form_items">
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class="animate__animated animate__fadeInRight animate_50ms">
-								<input id="programming_opt_<%=j2%>" type="radio"
-								value="<%=shuffleQuestions2.get(i).getOption1()%>"
-								name="programming_selected_option_<%=i%>"> <label
-								for="programming_opt_<%=j2%>"><%=shuffleQuestions2.get(i).getOption1()%></label>
-							</li>
-						</ul>
-					</div>
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class="animate__animated animate__fadeInRight animate_100ms">
-								<input id="programming_opt_<%=(j2 + 1)%>" type="radio"
-								value="<%=shuffleQuestions2.get(i).getOption2()%>"
-								name="programming_selected_option_<%=i%>"> <label
-								for="programming_opt_<%=(j2 + 1)%>"><%=shuffleQuestions2.get(i).getOption2()%></label>
-							</li>
-						</ul>
-					</div>
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class=" animate__animated animate__fadeInRight animate_150ms">
-								<input id="programming_opt_<%=(j2 + 2)%>" type="radio"
-								value="<%=shuffleQuestions2.get(i).getOption3()%>"
-								name="programming_selected_option_<%=i%>"> <label
-								for="programming_opt_<%=(j2 + 2)%>"><%=shuffleQuestions2.get(i).getOption3()%></label>
-							</li>
-						</ul>
-					</div>
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class=" animate__animated animate__fadeInRight animate_200ms">
-								<input id="programming_opt_<%=(j2 + 3)%>" type="radio"
-								value="<%=shuffleQuestions2.get(i).getOption4()%>"
-								name="programming_selected_option_<%=i%>"> <label
-								for="programming_opt_<%=(j2 + 3)%>"><%=shuffleQuestions2.get(i).getOption4()%></label>
-							</li>
-						</ul>
-					</div>
-					<hr>
-					<%
-					j2 += 4;
-					%>
-				</div>
-				<%
-				}
-				%>
-				<!-- ------------------------Pseudocode Questions-------------------- -->
+		<div class="container" data-aos="fade-up">
 
-				<h2 class="question_title text-center"
-					style="color: black; color: black; font-size: 25px; font-family: cursive;">Pseudocode
-					Questions</h2>
-				<%
-				int j3 = 0;
-				ArrayList<CBTQuestions> shuffleQuestions3 = questionDao.getPseudocodeShuffeledQuestions();
-				for (int i = 0; i < shuffleQuestions3.size(); i++) {
-				%>
-				<div class="question_number text-center text-uppercase text-white"
-					style="margin-top: 2%;">
-					<span class="rounded-pill"
-						style="background: -webkit-gradient(linear, left top, right top, from(#2ff5ff), to(#19f05b)); background: linear-gradient(to right, #2ff5ff, #19f05b);">Question
-						1 to <%=(i + 1)%></span>
-				</div>
-				<div class="question_title text-center text-uppercase">
-					<input type="hidden"
-						value="<%=shuffleQuestions3.get(i).getQuestionid()%>"
-						name="pseudocode_question_id_<%=i%>">
-					<h1 class="animate__animated animate__fadeInRight animate_25ms"><%=shuffleQuestions3.get(i).getQuestion()%></h1>
-				</div>
+			<header class="section-header">
+				<h2>Login with your account</h2>
+				<p>Login</p>
+			</header>
 
-				<div class="row form_items">
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class="animate__animated animate__fadeInRight animate_50ms">
-								<input id="pseudocode_opt_<%=j3%>" type="radio"
-								value="<%=shuffleQuestions3.get(i).getOption1()%>"
-								name="pseudocode_selected_option_<%=i%>"> <label
-								for="pseudocode_opt_<%=j3%>"><%=shuffleQuestions3.get(i).getOption1()%></label>
-							</li>
-						</ul>
-					</div>
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class="animate__animated animate__fadeInRight animate_100ms">
-								<input id="pseudocode_opt_<%=(j3 + 1)%>" type="radio"
-								value="<%=shuffleQuestions3.get(i).getOption2()%>"
-								name="pseudocode_selected_option_<%=i%>"> <label
-								for="pseudocode_opt_<%=(j3 + 1)%>"><%=shuffleQuestions3.get(i).getOption2()%></label>
-							</li>
-						</ul>
-					</div>
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class=" animate__animated animate__fadeInRight animate_150ms">
-								<input id="pseudocode_opt_<%=(j3 + 2)%>" type="radio"
-								value="<%=shuffleQuestions3.get(i).getOption3()%>"
-								name="pseudocode_selected_option_<%=i%>"> <label
-								for="pseudocode_opt_<%=(j3 + 2)%>"><%=shuffleQuestions3.get(i).getOption3()%></label>
-							</li>
-						</ul>
-					</div>
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class=" animate__animated animate__fadeInRight animate_200ms">
-								<input id="pseudocode_opt_<%=(j3 + 3)%>" type="radio"
-								value="<%=shuffleQuestions3.get(i).getOption4()%>"
-								name="pseudocode_selected_option_<%=i%>"> <label
-								for="pseudocode_opt_<%=(j3 + 3)%>"><%=shuffleQuestions3.get(i).getOption4()%></label>
-							</li>
-						</ul>
-					</div>
-					<hr>
-					<%
-					j3 += 4;
-					%>
-				</div>
-				<%
-				}
-				%>
+			<div class="row gy-4">
 
-				<!-- -----------------------Aptitude Questions-------------------- -->
-				<%-- 		<h2 class="question_title text-center"
-					style="color: black; color: black; font-size: 25px; font-family: cursive; margin-top: 9px;">Aptitude
-					Questions</h2>
-				<%
-				/* int j = 1; */
-				/* ArrayList<CBTQuestions> shuffleQuestions = questionDao.getShuffeledQuestions(); */
-				for (int i = 0; i < 15; i++) {
-					int k = 1;
-				%>
-				<div class="question_number text-center text-uppercase text-white"
-					style="margin-top: 2%">
-					<span class="rounded-pill">Question 1 to <%=(i + 1)%></span>
-				</div>
-				<div class="question_title text-center text-uppercase">
-					<img class="animate__animated animate__fadeInRight animate_25ms"
-						alt="" src="AptitudeImg/AptQ<%=(i + 1)%>.png"
-						style="margin-top: 2%">
-				</div>
+				<div class="col-lg-6">
 
-				<div class="row pt-5 mt-4 form_items">
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class="animate__animated animate__fadeInRight animate_50ms">
-								<input id="opt_<%=j%>" type="radio" value=""
-								name="stp_<%=i%>_select_option"> <img alt=""
-								src="AptitudeImg/AptQ<%=(i + 1)%>Op<%=k%>.png"
-								style="margin-top: 2%">
-							</li>
-						</ul>
-					</div>
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class="animate__animated animate__fadeInRight animate_100ms">
-								<input id="opt_<%=(j + 1)%>" type="radio" value=""
-								name="stp_<%=i%>_select_option"> <img alt=""
-								src="AptitudeImg/AptQ<%=(i + 1)%>Op<%=(k + 1)%>.png"
-								style="margin-top: 2%">
-							</li>
-						</ul>
-					</div>
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class=" animate__animated animate__fadeInRight animate_150ms">
-								<input id="opt_<%=(j + 2)%>" type="radio" value=""
-								name="stp_<%=i%>_select_option"> <img alt=""
-								src="AptitudeImg/AptQ<%=(i + 1)%>Op<%=(k + 2)%>.png"
-								style="margin-top: 2%">
-							</li>
-						</ul>
-					</div>
-					<div class="col-6">
-						<ul class="list-unstyled p-0">
-							<li class=" animate__animated animate__fadeInRight animate_200ms">
-								<input id="opt_<%=(j + 3)%>" type="radio" value=""
-								name="stp_<%=i%>_select_option"><img alt=""
-								src="AptitudeImg/AptQ<%=(i + 1)%>Op<%=(k + 3)%>.png"
-								style="margin-left: 2%">
-							</li>
-						</ul>
-					</div>
-					<hr>
-					<%
-					j += 4;
-					%>
-				</div>
-				<%
-				}
-				%> --%>
+					<div class="row gy-4">
 
-				<div class="form_btn">
+						<div class="col-md-6">
+							<div class="info-box">
+								<i class="bi bi-telephone"></i>
+								<h3>Call Us</h3>
+								<p>
+									+1 5589 55488 55<br>+1 6678 254445 41
+								</p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="info-box">
+								<i class="bi bi-envelope"></i>
+								<h3>Email Us</h3>
+								<p>
+									contact@example.com<br>contact@example.com
+								</p>
+							</div>
+						</div>
 
-					<button type="submit"
-						class="next_btn rounded-pill position-absolute text-uppercase text-white"
-						id="nextBtn">SUBMIT</button>
-
+					</div>
 
 				</div>
 
-			</form>
+				<div class="col-lg-6">
+
+					<form action="login" id="login-form" method="post"
+						class="email-form">
+						<div class="row gy-4">
+							<div class="col-md-12 ">
+								<input type="email" class="form-control" name="email"
+									placeholder="Your Email" required>
+							</div>
+
+							<div class="col-md-12 ">
+								<input type="password" class="form-control" name="password"
+									placeholder="Your Password" required>
+							</div>
+
+							<div class="text-center" id="lloader" style="display: none;">
+								<span> <i class="fa fa-refresh fa-spin fa-3x"
+									style="font-size: 24px"></i>
+								</span>
+								<h4>Please wait..</h4>
+							</div>
+							<div class="col-md-12 text-center">
+								<button class="myButtons" type="submit" id="login-submit-btn"
+									style="background-color: #0094a4">Login</button>
+							</div>
+
+						</div>
+					</form>
+
+				</div>
+
+			</div>
+
 		</div>
-	</div>
-	<!-- jQuery-js include -->
-	<script src="assets/js/jquery-3.6.0.min.js"></script>
-	<!-- Bootstrap-js include -->
-	<script src="assets/js/bootstrap.min.js"></script>
-	<!-- jQuery-counter-up-js include -->
-	<script src="assets/js/countdown.js"></script>
-	<!-- jQuery-validate-js include -->
-	<script src="assets/js/jquery.validate.min.js"></script>
-	<!-- Custom-js include -->
-	<script src="assets/js/script.js"></script>
+
+	</section>
+	<!-- End Login Section -->
+
+
+	<main id="main">
+		<!-- ======= About Section ======= -->
+		<section id="about" class="about">
+
+			<header class="section-header">
+				<p>About Us</p>
+			</header>
+
+			<div class="container" data-aos="fade-up">
+				<div class="row gx-0">
+
+					<div class="col-lg-6 d-flex flex-column justify-content-center"
+						data-aos="fade-up" data-aos-delay="200">
+						<div class="content">
+							<h3>Who We Are</h3>
+							<h2>Expedita voluptas omnis cupiditate totam eveniet nobis
+								sint iste. Dolores est repellat corrupti reprehenderit.</h2>
+							<p>Quisquam vel ut sint cum eos hic dolores aperiam. Sed
+								deserunt et. Inventore et et dolor consequatur itaque ut
+								voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum
+								nam et est corrupti.</p>
+							<div class="text-center text-lg-start">
+								<a href="#"
+									class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center"
+									style="background-color: #0094a4"> <span>Read More</span> <i
+									class="bi bi-arrow-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out"
+						data-aos-delay="200">
+						<img src="assets/img/about.jpg" class="img-fluid" alt="">
+					</div>
+
+				</div>
+			</div>
+
+		</section>
+		<!-- End About Section -->
+
+
+		<!-- ======= Register Section ======= -->
+		<section id="contact" class="contact">
+
+			<div class="container" data-aos="fade-up">
+
+				<header class="section-header">
+					<h2>Register for Training</h2>
+					<p>Register</p>
+				</header>
+
+				<div class="row gy-4">
+
+					<div class="col-lg-6">
+
+						<div class="row gy-4">
+							<div class="col-md-6">
+								<div class="info-box">
+									<i class="bi bi-geo-alt"></i>
+									<h3>Address</h3>
+									<p>
+										A108 Adam Street,<br>New York, NY 535022
+									</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="info-box">
+									<i class="bi bi-telephone"></i>
+									<h3>Call Us</h3>
+									<p>
+										+1 5589 55488 55<br>+1 6678 254445 41
+									</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="info-box">
+									<i class="bi bi-envelope"></i>
+									<h3>Email Us</h3>
+									<p>
+										contact@example.com<br>contact@example.com
+									</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="info-box">
+									<i class="bi bi-clock"></i>
+									<h3>Open Hours</h3>
+									<p>
+										Monday - Saturday<br>2:00PM - 11:00PM
+									</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-lg-6">
+						<form id="reg-form" method="post" class="email-form"
+							action="register">
+							<div class="row gy-4">
+
+								<h4 style="font-weight: bold; margin-bottom: -4%">Personal
+									Details..</h4>
+								<hr style="margin-bottom: -2%;">
+								<div class="col-md-6">
+									<small style="font-weight: bold;">Your Name</small> <input
+										type="text" name="traineeName" class="form-control"
+										placeholder="Your Name" required>
+								</div>
+								<div class="col-md-6">
+									<small style="font-weight: bold;">Your Email Address</small> <input
+										type="email" class="form-control" name="traineeEmail"
+										placeholder="Your Email" required>
+								</div>
+								<div class="col-md-6">
+									<small style="font-weight: bold;">Your Password</small> <input
+										type="password" class="form-control" name="traineePassword"
+										placeholder="Your Password" required>
+								</div>
+								<div class="col-md-6">
+									<small style="font-weight: bold;">Your Contact No.</small> <input
+										type="number" class="form-control" name="traineeContactNumber"
+										placeholder="Your Contact No." required>
+								</div>
+
+								<h4 style="font-weight: bold; margin-bottom: -4%">Campus &
+									Technology Details..</h4>
+								<hr style="margin-bottom: -2%;">
+								<div class="col-md-6">
+									<small style="font-weight: bold;">Select Technology for
+										Training</small> <select required="required" class="form-control"
+										name="traineeTechnologyName">
+										<option value="">Select Technology</option>
+										<option value="tech 1">Technology 1</option>
+										<option value="tech 2">Technology 2</option>
+										<option value="tech 3">Technology 3</option>
+										<option value="tech 4">Technology 4</option>
+										<option value="tech 5">Technology 5</option>
+										<option value="tech 6">Technology 6</option>
+										<option value="tech 7">Technology 7</option>
+									</select>
+								</div>
+								<div class="col-md-6">
+									<small style="font-weight: bold;">University Name</small> <input
+										type="text" class="form-control" name="traineeUniversityName"
+										placeholder="College University Name" required>
+								</div>
+								<div class="col-md-6">
+									<small style="font-weight: bold;">Your College Name</small> <input
+										type="text" class="form-control" name="traineeCollegeName"
+										placeholder="Your College Name" required>
+								</div>
+								<div class="col-md-6">
+									<small style="font-weight: bold;">Visited College Name</small>
+									<input type="text" class="form-control"
+										name="traineeVisitedCollegeName"
+										placeholder="Visited College Name" required>
+								</div>
+								<div class="col-md-6">
+									<small style="font-weight: bold;">Your College Roll No.</small>
+									<input type="text" class="form-control"
+										name="traineeCollegeRollNo" placeholder="Your Roll No."
+										required>
+								</div>
+								<div class="col-md-6 ">
+									<small style="font-weight: bold;">Enter Your 10th
+										Percentage</small> <input type="number" min="0" max="100" value="%"
+										class="form-control" name="trainee10thPercentage"
+										placeholder="Your 10th Percentage" required>
+								</div>
+								<div class="col-md-6 ">
+									<small style="font-weight: bold;">Enter Your 12th
+										Percentage</small> <input type="number" min="0" max="100" value="%"
+										class="form-control" name="trainee12thPercentage"
+										placeholder="Your 12th Percentage" required>
+								</div>
+								<div class="col-md-6 ">
+									<small style="font-weight: bold;">Enter Your U.G.
+										Percentage</small> <input type="number" min="0" max="100" value="%"
+										class="form-control" name="traineeUGPercentage"
+										placeholder="Your U.G. Percentage" required>
+								</div>
+								<div class="col-md-12">
+									<small style="font-weight: bold;">Select HR </small> <select
+										required="required" class="form-control" name="traineeHRName">
+										<option value="">Select HR, through which you are
+											giving the test</option>
+										<option value="sir">Sir</option>
+										<option value="maim">Maim</option>
+									</select>
+								</div>
+								<div class="col-md-12 ">
+									<small style="font-weight: bold;">Select Your 10th and
+										12th documents..</small><input type="file" name="traineeDocuments"
+										multiple="multiple" class="form-control">
+								</div>
+								<div class="text-center" id="loader" style="display: none;">
+									<span> <i class="fa fa-refresh fa-spin fa-3x"
+										style="font-size: 24px"></i>
+									</span>
+									<h4>Please wait..</h4>
+								</div>
+								<div class="col-md-12 text-center">
+
+									<button class="myButtons" id="submit-btn" type="submit"
+										style="background-color: #0094a4">Register</button>
+								</div>
+
+							</div>
+						</form>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
+		<!-- End Register Section -->
+
+	</main>
+	<!-- End #main -->
+
+	<a href="#"
+		class="back-to-top d-flex align-items-center justify-content-center"><i
+		class="bi bi-arrow-up-short"></i></a>
+
+	<!-- Vendor JS Files -->
+	<script src="assets/vendor/purecounter/purecounter.js"></script>
+	<script src="assets/vendor/aos/aos.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<script src="assets/vendor/php-email-form/validate.js"></script>
+
+	<!-- Template Main JS File -->
+	<script src="assets/js/main.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+		integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+	<!-- Register form page script -->
+	<script>
+		$(document).ready(function() {
+			console.log("Register loaded........")
+			$('#reg-form').on('submit', function(event) {
+				event.preventDefault();
+				let form = new FormData(this);
+
+				$("#submit-btn").hide();
+				$("#loader").show();
+
+				//Send register servlet
+				$.ajax({
+					url : "register",
+					type : 'POST',
+					data : form,
+					success : function(data, textStatus, jqXHR) {
+						console.log(data)
+						$("#submit-btn").show();
+						$("#loader").hide();
+						if (data.trim() === 'exists') {
+							swal({
+								title : "Sorry!",
+								text : "Sorry user already exists..",
+								icon : "warning",
+								button : "Ohh Noo",
+							});
+						} else {
+							swal({
+								title : "Welcome",
+								text : "User save successfully..",
+								icon : "success",
+								button : "Ohh Yess",
+							})
+							.then((value) => {
+								window.location = "userDashboard.jsp"
+							});
+						}
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						$("#submit-btn").show();
+						$("#loader").hide();
+						swal({
+							title : "Sorry!",
+							text : "Sorry Something went wrong..",
+							icon : "warning",
+							button : "Ohh Noo",
+						});
+					},
+					processData : false,
+					contentType : false
+				});
+			});
+		});
+	</script>
+
+
 </body>
 
 </html>
